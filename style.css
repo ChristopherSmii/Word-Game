@@ -1,0 +1,35 @@
+*{
+    text-align: center;
+    margin:0;
+    color:red;
+    font-family: cursive;
+}
+#mainWebsite{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+
+}
+#websiteTitle{
+    display: flex;
+    justify-content: center;
+}
+#titleAnimation{
+    display: grid;
+    grid-template-columns: repeat(9,1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap:6px;
+}
+#titleIcon{
+    display: flex;
+}
+.lowDash{
+    width:28px;
+    height:4px;
+    background-color: white;
+}
+.titleLetter{
+    text-emphasis: none;
+    user-select: none;
+}
