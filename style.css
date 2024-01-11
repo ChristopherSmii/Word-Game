@@ -3,6 +3,7 @@
     margin:0;
     color:red;
     font-family: cursive;
+    font-size:large;
 }
 #mainWebsite{
     display: flex;
@@ -71,4 +72,24 @@
 }
 .empty{
     opacity: 1;
+}
+
+/* keyboard */
+
+#keyboard{
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 6px;
+    position: relative;
+    left:50%;
+    transform:translateX(-50%);
+    margin-top: 20px;
+}
+.inputKeys{
+    opacity: 1;
+    border:2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

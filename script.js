@@ -1,46 +1,47 @@
 let arrayTitle="Word Game";
+var answerWord="hi";
 let titleValue=true;
 let arrayRandomWords=[
-'Jacket',
-'Glitter',
-'Harmony',
-'Freedom',
-'Lantern',
-'Velvet',
-'Breeze',
-'Crimson',
-'Twilight',
-'Horizon',
-'Whisper',
-'Orbital',
-'Puzzled',
-'Scribble',
-'Juniper',
-'Stellar',
-'Echoes',
-'Sizzle',
-'Flaming',
-'Tranquil',
-'Fractal',
-'Blizzard',
-'Uplifts',
-'Quantum',
-'Trickle',
-'Dazzled',
-'Venture',
-'Harmony',
-'Mirage',
-'Tangerine',
-'Serenade',
-'Cerulean',
-'Marzipan',
-'Pinnacle',
-'Blossom',
-'Saffron',
-'Verdant',
-'Mysterious',
-'Obsidian',
-'Whispers',
+'jacket',
+'glitter',
+'harmony',
+'freedom',
+'lantern',
+'velvet',
+'breeze',
+'crimson',
+'twilight',
+'horizon',
+'whisper',
+'orbital',
+'puzzled',
+'scribble',
+'juniper',
+'stellar',
+'echoes',
+'sizzle',
+'flaming',
+'tranquil',
+'fractal',
+'blizzard',
+'uplifts',
+'quantum',
+'trickle',
+'dazzled',
+'venture',
+'harmony',
+'mirage',
+'tangerine',
+'serenade',
+'cerulean',
+'marzipan',
+'pinnacle',
+'blossom',
+'saffron',
+'verdant',
+'mysterious',
+'obsidian',
+'whispers',
 ];
 
 //Title
@@ -66,12 +67,13 @@ function titleWrite(){
 titleWrite();
 
 //lifePoints
-let lifePoints=3;
+let lifePoints=4;
 function lifeReduce(value){
     if(value){
         document.querySelectorAll(".healthBox")[0].classList.remove("healthBox");
         lifePoints--;
     }
+    aLookAtTheWord();
 }
 
 //randomWord
@@ -84,3 +86,52 @@ function buildRandomWord(rNum){
 
 buildRandomWord(mainWord);
 
+// keyboard
+function wordCalculator(inn){
+    damageValue=true;
+    for(let i=0;i<arrayRandomWords[mainWord].length;i++){
+        if(inn==arrayRandomWords[mainWord][i]){
+            document.querySelectorAll(".randomWordLetter")[i].innerHTML=inn;
+            damageValue=false;
+        }
+    }
+    lifeReduce(damageValue);
+    if(!lifePoints){
+        alert("Game Over");
+        gameOver();
+    }
+}
+function addListenersOnButtons(){
+    for(let i=0;i<document.querySelectorAll(".inputKeys").length;i++){
+        document.querySelectorAll(".inputKeys")[i].addEventListener("click",function(){
+            console.log(this.innerHTML);
+            sounds(true);
+            wordCalculator(this.innerHTML);
+            aLookAtTheWord();
+            this.innerHTML="";
+        });
+    }
+}
+addListenersOnButtons();
+
+// game over
+
+function gameOver(){
+    setTimeout(location.reload(),500);
+}
+function aLookAtTheWord(){
+    let winCondition=0;
+    for(let i=0;i<arrayRandomWords[mainWord].length;i++){
+
+        if(document.querySelectorAll(".randomWordLetter")[i].innerHTML==arrayRandomWords[mainWord][i]){
+            winCondition++;
+            answerWord[i]=document.querySelectorAll(".randomWordLetter")[i].innerHTML;
+        }
+        
+    }
+    if(winCondition==arrayRandomWords[mainWord].length){
+        sounds(false);
+        alert("you win");
+        gameOver();
+    }
+}
