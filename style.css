@@ -6,9 +6,13 @@
 }
 #mainWebsite{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     margin-top: 10px;
+    position: absolute;
+    left:50%;
+    transform:translateX(-50%);
+    
 
 }
 #websiteTitle{
@@ -32,4 +36,39 @@
 .titleLetter{
     text-emphasis: none;
     user-select: none;
+}
+
+/* health */
+
+#healthContainer{
+    display:flex;
+    gap: 6px;
+    width:fit-content;
+    flex-direction: row-reverse;
+    position: relative;
+    left:50%;
+    transform:translateX(-50%);
+}
+.healthBox{
+    background-color: red;
+    opacity: 1;
+    height: 20px;
+    width:20px;
+    border-radius: 50%;
+}
+
+/* randomWord */
+
+#randomWord{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(2,1fr);
+    margin-top: 30px;
+    gap:6px
+}
+.randomWordLetter{
+    color:red;
+}
+.empty{
+    opacity: 1;
 }
