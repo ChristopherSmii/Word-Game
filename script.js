@@ -97,7 +97,7 @@ function wordCalculator(inn){
     }
     lifeReduce(damageValue);
     if(!lifePoints){
-        alert("Game Over");
+        alert("Game Over. The word was '"+arrayRandomWords[mainWord]+"'");
         gameOver();
     }
 }
