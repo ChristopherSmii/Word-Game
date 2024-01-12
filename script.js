@@ -130,8 +130,11 @@ function aLookAtTheWord(){
     }
     if(winCondition==arrayRandomWords[mainWord].length){
         sounds(false);
+        setTimeout(function(){
         alert("you win");
         gameOver();
+        },2000);
+        
     }
     else{
         sounds(true);
