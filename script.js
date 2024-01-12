@@ -73,7 +73,6 @@ function lifeReduce(value){
         document.querySelectorAll(".healthBox")[0].classList.remove("healthBox");
         lifePoints--;
     }
-    aLookAtTheWord();
 }
 
 //randomWord
@@ -105,7 +104,7 @@ function addListenersOnButtons(){
     for(let i=0;i<document.querySelectorAll(".inputKeys").length;i++){
         document.querySelectorAll(".inputKeys")[i].addEventListener("click",function(){
             console.log(this.innerHTML);
-            sounds(true);
+            //sounds(true);
             wordCalculator(this.innerHTML);
             aLookAtTheWord();
             this.innerHTML="";
@@ -133,5 +132,8 @@ function aLookAtTheWord(){
         sounds(false);
         alert("you win");
         gameOver();
+    }
+    else{
+        sounds(true);
     }
 }
